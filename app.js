@@ -104,6 +104,38 @@ class TvSeries extends Movie {
   }
 }
 
+// creating Cart class to manage movies, adding them or removing, automatically with 3.99 price
+
+class Cart {
+  constructor() {
+    this.movies = [];
+    this.totalPrice = 0;
+  }
+
+  addMovie(movie) {
+    this.movies.push(movie);
+    this.totalPrice += 3.99;
+  }
+
+  removeMovie(movieTitle) {
+    this.movies.forEach((element) => {
+      if (element == movieTitle) {
+        this.movies = this.movies.filter((el) => el != movieTitle);
+        this.totalPrice -= 3.99;
+      } else {
+        console.log("Non esiste questo film nella tua lista");
+      }
+    });
+  }
+}
+
+const cart = new Cart();
+cart.addMovie("film");
+cart.addMovie("altrofilm");
+cart.removeMovie("film");
+
+console.log(cart);
+
 // creation of movie or series from type
 const newArray = collection.map((el) => {
   if (el.type == "Movie") {
