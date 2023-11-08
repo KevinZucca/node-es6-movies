@@ -105,7 +105,7 @@ const genre = (array, genre) => {
 // const genreAvg = genre(newArray, "Action");
 // console.log(genreAvg);
 
-// Creiamo una funzione che restituisca la lista di tutti i generi dei film, senza che questi si ripetano.
+// function to get all genres name
 
 function getGenres(array) {
   const allGenres = [];
@@ -119,4 +119,20 @@ function getGenres(array) {
   return allGenres;
 }
 
-console.log(getGenres(newArray));
+// console.log(getGenres(newArray));
+
+// creating a function that returns the function toString starting from a genre
+
+const filterMovie = (array, genre) => {
+  const description = [];
+  array.forEach((element) => {
+    element.genre.forEach((singleGenre) => {
+      if (singleGenre == genre) {
+        description.push(element.toString());
+      }
+    });
+  });
+  return description;
+};
+
+// console.log(filterMovie(newArray, "Horror"));
