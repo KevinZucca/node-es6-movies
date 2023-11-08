@@ -74,26 +74,20 @@ class TvSeries extends Movie {
   }
 }
 
-// creating a new istance of Movie
+// creation of movie or series from type
+const newArray = collection.map((el) => {
+  if (el.type == "Movie") {
+    return new Movie(el.title, el.year, el.genre, el.rating, el.type);
+  } else {
+    return new TvSeries(
+      el.title,
+      el.year,
+      el.genre,
+      el.rating,
+      el.type,
+      el.seasons
+    );
+  }
+});
 
-const movie = new Movie(
-  collection[0].title,
-  collection[0].year,
-  collection[0].genre,
-  collection[0].rating,
-  collection[0].type
-);
-
-// creating a new istance of tv Series
-
-const tvSeries = new TvSeries(
-  collection[1].title,
-  collection[1].year,
-  collection[1].genre,
-  collection[1].rating,
-  collection[1].type,
-  collection[1].seasons
-);
-
-console.log(movie.toString());
-console.log(tvSeries.toString());
+console.log(newArray[5].toString());
