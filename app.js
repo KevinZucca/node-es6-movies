@@ -4,14 +4,14 @@ const collection = [
   {
     title: "Inception",
     year: "2010",
-    genre: ["Sci-Fi, Action"],
+    genre: ["Sci-Fi", "Action"],
     rating: 8.8,
     type: "Movie",
   },
   {
     title: "Breaking Bad",
     year: "2008",
-    genre: ["Crime, Drama, Thriller"],
+    genre: ["Crime", "Drama", "Thriller"],
     rating: 9.5,
     type: "Tv",
     seasons: 5,
@@ -19,14 +19,14 @@ const collection = [
   {
     title: "The Dark Knight",
     year: "2008",
-    genre: ["Action, Crime, Drama"],
+    genre: ["Action", "Crime", "Drama"],
     rating: 9,
     type: "Movie",
   },
   {
     title: "Stranger Things",
     year: "2016",
-    genre: ["Drama, Fantasy, Horror"],
+    genre: ["Drama", "Fantasy", "Horror"],
     rating: 8.7,
     type: "Tv",
     seasons: 4,
@@ -34,14 +34,14 @@ const collection = [
   {
     title: "Pulp Fiction",
     year: "1994",
-    genre: ["Crime, Drama"],
+    genre: ["Crime", "Drama"],
     rating: 8.9,
     type: "Movie",
   },
   {
     title: "Game of Thrones",
     year: "2011",
-    genre: ["Action, Adventure, Drama"],
+    genre: ["Action", "Adventure", "Drama"],
     rating: 9.3,
     type: "Tv",
     seasons: 8,
@@ -102,5 +102,21 @@ const genre = (array, genre) => {
   return sum / avg.length;
 };
 
-const genreAvg = genre(newArray, "Action");
-console.log(genreAvg);
+// const genreAvg = genre(newArray, "Action");
+// console.log(genreAvg);
+
+// Creiamo una funzione che restituisca la lista di tutti i generi dei film, senza che questi si ripetano.
+
+function getGenres(array) {
+  const allGenres = [];
+  array.forEach((element) => {
+    element.genre.forEach((singleGenre) => {
+      if (!allGenres.includes(singleGenre)) {
+        allGenres.push(singleGenre);
+      }
+    });
+  });
+  return allGenres;
+}
+
+console.log(getGenres(newArray));
